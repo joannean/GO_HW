@@ -1,0 +1,824 @@
+[
+    {
+        "id": "0a8f5e494203a662",
+        "type": "ui-button",
+        "z": "0547cea2124404ea",
+        "group": "172c78e4a40f30b4",
+        "name": "新增 Todo list",
+        "label": "新增 Todo list",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "emulateClick": true,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"task\":\"完成作業\",\"done\":true}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "63cb5d8861e33dc2"
+            ]
+        ]
+    },
+    {
+        "id": "87d889caae3045e4",
+        "type": "json",
+        "z": "0547cea2124404ea",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 670,
+        "y": 200,
+        "wires": [
+            [
+                "74594b2b64b4014c",
+                "d9f6e4778d7c576c"
+            ]
+        ]
+    },
+    {
+        "id": "74594b2b64b4014c",
+        "type": "debug",
+        "z": "0547cea2124404ea",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "d9f6e4778d7c576c",
+        "type": "ui-table",
+        "z": "0547cea2124404ea",
+        "group": "172c78e4a40f30b4",
+        "name": "create",
+        "label": "text",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "maxrows": 0,
+        "passthru": false,
+        "autocols": true,
+        "showSearch": false,
+        "selectionType": "none",
+        "columns": [],
+        "mobileBreakpoint": "sm",
+        "mobileBreakpointType": "defaults",
+        "action": "replace",
+        "x": 850,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "63cb5d8861e33dc2",
+        "type": "http request",
+        "z": "0547cea2124404ea",
+        "name": "POST",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:8008/todoapi/todolist",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 450,
+        "y": 200,
+        "wires": [
+            [
+                "87d889caae3045e4"
+            ]
+        ]
+    },
+    {
+        "id": "ea7ccf2015521b80",
+        "type": "http request",
+        "z": "0547cea2124404ea",
+        "name": "DELET",
+        "method": "DELETE",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 660,
+        "y": 500,
+        "wires": [
+            [
+                "34bebd19b2ff92db",
+                "bba80b3c1febcfc6"
+            ]
+        ]
+    },
+    {
+        "id": "bba80b3c1febcfc6",
+        "type": "json",
+        "z": "0547cea2124404ea",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 910,
+        "y": 500,
+        "wires": [
+            [
+                "c56be15f7f551555",
+                "5acd6c900a44eada"
+            ]
+        ]
+    },
+    {
+        "id": "c56be15f7f551555",
+        "type": "debug",
+        "z": "0547cea2124404ea",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "5acd6c900a44eada",
+        "type": "ui-table",
+        "z": "0547cea2124404ea",
+        "group": "503e110dabe409ae",
+        "name": "delete",
+        "label": "text",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "maxrows": 0,
+        "passthru": false,
+        "autocols": true,
+        "showSearch": false,
+        "selectionType": "none",
+        "columns": [],
+        "mobileBreakpoint": "sm",
+        "mobileBreakpointType": "defaults",
+        "action": "replace",
+        "x": 1130,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7a0529af759a4328",
+        "type": "ui-text-input",
+        "z": "0547cea2124404ea",
+        "group": "503e110dabe409ae",
+        "name": "DELET ID input",
+        "label": "DELET ID input",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 320,
+        "y": 500,
+        "wires": [
+            [
+                "e2d89d29719aa17e"
+            ]
+        ]
+    },
+    {
+        "id": "e2d89d29719aa17e",
+        "type": "function",
+        "z": "0547cea2124404ea",
+        "name": "function 5",
+        "func": "let todoId = msg.payload; // 获取输入的 ID\nif (!todoId) {\n    return [null, { payload: \"ID is required.\" }]; // 返回错误消息\n}\n\n// 继续构建 DELETE 请求\nmsg.url = `http://localhost:8008/todoapi/todolist/${todoId}`; // 设置请求 URL\nmsg.method = \"DELETE\"; // 设置 HTTP 方法为 DELETE\nreturn msg; // 返回消息对象以供 HTTP 请求节点使用\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 500,
+        "wires": [
+            [
+                "ea7ccf2015521b80"
+            ]
+        ]
+    },
+    {
+        "id": "34bebd19b2ff92db",
+        "type": "debug",
+        "z": "0547cea2124404ea",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "f1fcc9ed7c1c7168",
+        "type": "ui-button",
+        "z": "0547cea2124404ea",
+        "group": "4b510d9339b6b82a",
+        "name": "查看當前 Todo list",
+        "label": "查看當前 Todo list",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "x": 168,
+        "y": 322,
+        "wires": [
+            [
+                "f6dcc62d874c8e6a"
+            ]
+        ]
+    },
+    {
+        "id": "f6dcc62d874c8e6a",
+        "type": "http request",
+        "z": "0547cea2124404ea",
+        "name": "GET",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://localhost:8008/todoapi/todolist",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 388,
+        "y": 322,
+        "wires": [
+            [
+                "096542c96fb1cc09"
+            ]
+        ]
+    },
+    {
+        "id": "096542c96fb1cc09",
+        "type": "json",
+        "z": "0547cea2124404ea",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 568,
+        "y": 322,
+        "wires": [
+            [
+                "dc02d72c951edbc2",
+                "230a2b5220d4e53a"
+            ]
+        ]
+    },
+    {
+        "id": "dc02d72c951edbc2",
+        "type": "debug",
+        "z": "0547cea2124404ea",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "230a2b5220d4e53a",
+        "type": "ui-table",
+        "z": "0547cea2124404ea",
+        "group": "4b510d9339b6b82a",
+        "name": "check",
+        "label": "text",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "maxrows": 0,
+        "passthru": false,
+        "autocols": true,
+        "showSearch": true,
+        "selectionType": "none",
+        "columns": [],
+        "mobileBreakpoint": "sm",
+        "mobileBreakpointType": "defaults",
+        "action": "replace",
+        "x": 788,
+        "y": 402,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c8897235bc1dfb35",
+        "type": "ui-button",
+        "z": "0547cea2124404ea",
+        "group": "503e110dabe409ae",
+        "name": "",
+        "label": "刪除 Todo list",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "x": 130,
+        "y": 500,
+        "wires": [
+            [
+                "7a0529af759a4328"
+            ]
+        ]
+    },
+    {
+        "id": "272b9009e64587c2",
+        "type": "http request",
+        "z": "0547cea2124404ea",
+        "name": "PUT",
+        "method": "PUT",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1070,
+        "y": 700,
+        "wires": [
+            [
+                "e0ab779358a41e62"
+            ]
+        ]
+    },
+    {
+        "id": "9554adf385dd0873",
+        "type": "function",
+        "z": "0547cea2124404ea",
+        "name": "function 6",
+        "func": "// 获取 Flow Context 中的 ID、Task 和 Done 状态\nlet todoId = flow.get('updateId');\nlet newTask = flow.get('newTask') || '';\nlet doneStatus = flow.get('doneStatus') || false;\n\n// 检查 ID 是否有效\nif (!todoId || isNaN(todoId)) {\n        node.error(\"Invalid ID\", msg);\n            return null;\n            }\n            \n// 构建更新的 Payload\nmsg.payload = {\n        task: newTask,\n            done: doneStatus\n            };\n            \n// 设置 HTTP 请求的 URL\nmsg.url = `http://localhost:8008/todoapi/todolist/${todoId}`;\nmsg.method = \"PUT\";\n\n// 设置 Headers\nmsg.headers = { \"Content-Type\": \"application/json\" };\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 700,
+        "wires": [
+            [
+                "272b9009e64587c2",
+                "9a963b37c0843b41"
+            ]
+        ]
+    },
+    {
+        "id": "e0ab779358a41e62",
+        "type": "json",
+        "z": "0547cea2124404ea",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1210,
+        "y": 700,
+        "wires": [
+            [
+                "cce84dfab3e52cd4",
+                "acb5eb66562bd25c"
+            ]
+        ]
+    },
+    {
+        "id": "cce84dfab3e52cd4",
+        "type": "debug",
+        "z": "0547cea2124404ea",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1380,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "acb5eb66562bd25c",
+        "type": "ui-table",
+        "z": "0547cea2124404ea",
+        "group": "bdae7028a0d53bfe",
+        "name": "PUT",
+        "label": "text",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "maxrows": 0,
+        "passthru": false,
+        "autocols": true,
+        "showSearch": false,
+        "selectionType": "none",
+        "columns": [],
+        "mobileBreakpoint": "sm",
+        "mobileBreakpointType": "defaults",
+        "action": "replace",
+        "x": 1390,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5a50c70873f8a520",
+        "type": "ui-text-input",
+        "z": "0547cea2124404ea",
+        "group": "bdae7028a0d53bfe",
+        "name": "PUT Task input",
+        "label": "Task input",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 320,
+        "y": 700,
+        "wires": [
+            [
+                "90271458a5a9b24d"
+            ]
+        ]
+    },
+    {
+        "id": "bc9c0c33326749bd",
+        "type": "ui-switch",
+        "z": "0547cea2124404ea",
+        "name": "PUT Done input",
+        "label": "Is True",
+        "group": "bdae7028a0d53bfe",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 520,
+        "y": 700,
+        "wires": [
+            [
+                "17268670429b80db"
+            ]
+        ]
+    },
+    {
+        "id": "407d50cd51cd5cb8",
+        "type": "ui-text-input",
+        "z": "0547cea2124404ea",
+        "group": "bdae7028a0d53bfe",
+        "name": "PUT ID input",
+        "label": "ID input",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "mode": "text",
+        "tooltip": "",
+        "delay": 300,
+        "passthru": true,
+        "sendOnDelay": false,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "sendOnClear": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "x": 110,
+        "y": 700,
+        "wires": [
+            [
+                "99b7ca5a98f39730"
+            ]
+        ]
+    },
+    {
+        "id": "693fdca38dd0edd0",
+        "type": "ui-button",
+        "z": "0547cea2124404ea",
+        "group": "bdae7028a0d53bfe",
+        "name": "",
+        "label": "更新 Todo list",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "x": 750,
+        "y": 700,
+        "wires": [
+            [
+                "9554adf385dd0873"
+            ]
+        ]
+    },
+    {
+        "id": "99b7ca5a98f39730",
+        "type": "function",
+        "z": "0547cea2124404ea",
+        "name": "store id function",
+        "func": "flow.set('updateId', msg.payload); \nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "90271458a5a9b24d",
+        "type": "function",
+        "z": "0547cea2124404ea",
+        "name": "store task function",
+        "func": "flow.set('newTask', msg.payload); \nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "17268670429b80db",
+        "type": "function",
+        "z": "0547cea2124404ea",
+        "name": "store done function",
+        "func": "flow.set('doneStatus', msg.payload); \nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9a963b37c0843b41",
+        "type": "debug",
+        "z": "0547cea2124404ea",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "172c78e4a40f30b4",
+        "type": "ui-group",
+        "name": "UPDATE",
+        "page": "22344863c5e63b62",
+        "width": "6",
+        "height": "1",
+        "order": 3,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "503e110dabe409ae",
+        "type": "ui-group",
+        "name": "DELETE",
+        "page": "22344863c5e63b62",
+        "width": "6",
+        "height": "1",
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "4b510d9339b6b82a",
+        "type": "ui-group",
+        "name": "CHECK",
+        "page": "22344863c5e63b62",
+        "width": "6",
+        "height": "1",
+        "order": 4,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "bdae7028a0d53bfe",
+        "type": "ui-group",
+        "name": "PUT",
+        "page": "22344863c5e63b62",
+        "width": "6",
+        "height": "1",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "22344863c5e63b62",
+        "type": "ui-page",
+        "name": "HW - Todo list",
+        "ui": "704d16c1020ac3a1",
+        "path": "/todolist",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "704d16c1020ac3a1",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "showPageTitle": true,
+        "navigationStyle": "default",
+        "titleBarStyle": "default"
+    }
+]
