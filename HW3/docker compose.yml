@@ -1,0 +1,7 @@
+version: "3"
+
+services:
+  app:
+    image: joannean/dockerhw
+    ports:
+      - 8008:8008

@@ -1,0 +1,6 @@
+server:
+  port: 8008
+
+database:
+  path: "todos.db"
+  jsonFile: "todos.json"
