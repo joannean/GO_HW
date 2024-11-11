@@ -1,0 +1,19 @@
+services:
+  app:
+    image: joannean/dockerhw
+    ports:
+      - 8010:8008
+
+  redis:
+    image: redis
+    ports:
+      - 6380:6379
+
+  redis-commander:
+    image: rediscommander/redis-commander
+    ports:
+      - "8081:8081"
+    environment:
+      - REDIS_HOSTS=my_redis:redis:6379:0
+    depends_on:
+      - redis
